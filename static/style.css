@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;700&display=swap');
+
+body {
+    background: linear-gradient(135deg, #20002c, #6f00ff, #ff0080);
+    background-size: 300% 300%;
+    animation: gradientMove 10s ease infinite;
+    color: #ffffff;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    padding-top: 100px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Evita que tudo suba demais */
+    min-height: 100vh; /* Faz o body ocupar toda a altura da tela */
+    padding-top: 20px; /* Adiciona um espaço no topo */
+    justify-content: center; /* Centraliza horizontalmente */
+}
+
+/* Animação para o fundo se mover suavemente */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-shadow: 0px 0px 15px #ff00ff;
+}
+
+form {
+    margin-top: 20px;
+}
+
+input[type="text"],
+input[type="date"] {
+    background: #111;
+    border: 2px solid #ff00ff;
+    color: #fff;
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+button {
+    background: linear-gradient(45deg, #ff00ff, #8000ff);
+    border: none;
+    padding: 12px 20px;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 0px 10px #ff00ff;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #ff0080, #4b0082);
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px #ff0080;
+}
+
+.container {
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 15px;
+    background:rgba(20, 0, 40, 0.8); /* Tom levemente mais escuro */
+    border: 3px solid black; /* Adiciona um contorno preto */
+    box-shadow: 0px 0px 20px rgba(255, 0, 255, 0.3);
+    backdrop-filter: blur(15px);
+    text-align: center;
+    animation: pulse 3s infinite alternate ease-in-out; /* Efeito de pulsação */
+}
+
+/* Animação para a caixa pulsar suavemente */
+@keyframes pulse {
+    0% { background: rgba(20, 0, 40, 0.8); box-shadow: 0px 0px 20px rgba(255, 0, 255, 0.3); }
+    100% { background: rgb(80, 0, 120); box-shadow: 0px 0px 30px rgba(255, 0, 255, 0.5); }
+}
+
+.container-calendario {
+    width: 80%; /* Faz o container ocupar mais espaço na tela */
+    max-width: 900px; /* Define um limite máximo para não ficar exagerado */
+    padding: 40px;
+    border-radius: 15px;
+    background: rgba(30, 0, 60, 0.9); /* Cor de fundo levemente transparente */
+    box-shadow: 0px 0px 20px rgba(255, 0, 255, 0.4);
+    text-align: center;
+    margin: 50px auto; /* Centraliza na tela e adiciona espaço no topo */
+}
+
+#filmeSelect {
+    width: 80%; /* Faz a barra ocupar mais espaço */
+    max-width: 400px; /* Define um limite máximo */
+    padding: 12px; /* Aumenta a área de clique */
+    font-size: 1.2rem; /* Deixa o texto maior */
+    border-radius: 8px; /* Arredonda as bordas */
+    border: 2px solid #ff00ff; /* Adiciona uma borda neon */
+    background: #111; /* Mantém o fundo escuro para combinar com o tema */
+    color: #fff; /* Mantém o texto branco */
+    text-align: center; /* Centraliza o texto */
+    box-shadow: 0px 0px 10px rgba(255, 0, 255, 0.5); /* Efeito de brilho */
+}
+
+#filmeSelect:focus {
+    outline: none;
+    border-color: #ff0080; /* Muda a borda ao clicar */
+    box-shadow: 0px 0px 15px rgba(255, 0, 128, 0.7);
+}
+
+
+#calendar {
+    background: rgba(20, 0, 40, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 15px rgba(255, 0, 255, 0.5);
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .container-calendario {
+        width: 90%;
+        padding: 30px;
+    }
+}
+
+
+.checkbox-label {
+    display: none; /* Esconde a lista de checkboxes feia */
+}
+
+.filme {
+    position: relative;
+}
+
+.filme input[type="checkbox"] {
+    position: absolute;
+    top: -5px; /* Ajusta a distância do topo */
+    right: 10px; /* Ajusta a distância da direita */
+    transform: scale(1.6); /* Aumenta um pouco o tamanho */
+    accent-color: #ff00ff; /* Cor personalizada */
+    cursor: pointer;
+}
+
+
+input[type="checkbox"] {
+    accent-color: #ff00ff;
+    transform: scale(1.5);
+    margin-right: 10px;
+}
+
+input {
+    display: block;
+    margin: 25px auto; /* Centraliza e adiciona espaçamento */
+}
+
+.btn-continuar {
+    display: block;
+    margin: 20px auto; /* Centraliza e adiciona espaçamento */
+}
+
+.catalogo + button {
+    margin-top: 30px; /* Adiciona espaço apenas no botão da página catálogo */
+}
+
+
+.container-catalogo {
+    position: center; /* Garante que siga o fluxo normal */
+    border: 3px solid rgb(0, 0, 0); /* Ajuda a visualizar onde está */
+    width: 90%;
+    max-width: 800px;
+    margin-top: 30px; /* Reduz o espaçamento para evitar exagero */
+    margin-bottom: 30px; /* Adiciona um espaço entre o container e o final da página */
+    padding: 50px;
+    background: rgba(30, 0, 60, 0.8);
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(255, 0, 255, 0.5);
+    text-align: center;
+}
+
+.catalogo {
+    margin-top: 25px; /* Afastar as caixinhas do topo */
+    padding: 40px 20px; /* Adicionar mais espaço interno */
+    background: rgba(30, 0, 60, 0.8); /* Cor de fundo */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 0, 255, 0.5);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 90%; /* Fazer a div ocupar mais espaço */
+    max-width: 800px; /* Limitar a largura */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilização das caixinhas */
+.filme {
+    width: 200px;
+    height: 260px;
+    background: rgba(20, 0, 40, 0.8);
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 0, 255, 0.5);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+/* Aumenta um pouco a caixinha quando o mouse passa */
+.filme:hover {
+    transform: scale(1.05);
+}
+
+/* Ajusta a imagem dentro da caixinha */
+.filme img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Estiliza o título do filme */
+.filme p {
+    color: white;
+    font-size: 15px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+/* Ajuste para telas menores (responsivo) */
+@media (max-width: 768px) {
+    .catalogo {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas por linha no tablet */
+    }
+}
+
+@media (max-width: 480px) {
+    .catalogo {
+        grid-template-columns: repeat(1, 1fr); /* 1 coluna por linha no celular */
+    }
+}
+
+.checkbox-filme {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transform: scale(1.5);
+}
+
+.container-confirmacao {
+    text-align: center;
+    padding: 30px;
+}
+
+.lista-filmes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.caixa-filme {
+    width: 250px;
+    background: rgba(20, 0, 40, 0.8);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(255, 0, 255, 0.5);
+    transition: transform 0.3s;
+}
+
+.caixa-filme:hover {
+    transform: scale(1.05);
+}
+
+.caixa-filme img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.caixa-filme h2 {
+    font-size: 18px;
+    margin-top: 10px;
+    color: white;
+}
+
+.caixa-filme p {
+    color: #ff00ff;
+    font-size: 16px;
+    margin-top: 5px;
+}

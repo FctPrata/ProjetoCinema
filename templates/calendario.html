@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <title>Escolha a Data</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+    <style>
+        /* Estilo do modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: #20002c;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px #ff00ff;
+            text-align: center;
+            color: white;
+        }
+        .close {
+            color: white;
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-calendario">
+        <h1>Escolha a data para assistir:</h1>
+        <div id="calendar"></div> <!-- Calendário será carregado aqui -->
+        <form method="POST" action="{{ url_for('confirmacao') }}">
+            <button type="submit" class="button">Avançar</button>
+        </form>
+        
+        
+    <div>
+
+    <!-- Modal para escolher o filme -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Escolha um filme para este dia</h2>
+            <form id="filmeForm">
+                <select id="filmeSelect" required>
+                    {% for filme in session["filmes_escolhidos"] %}
+                        <option value="{{ filme }}">{{ filme }}</option>
+                    {% endfor %}
+                </select>
+                <br><br>
+                <button type="submit">Confirmar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            var calendarEl = document.getElementById('calendar');
+            var modal = document.getElementById("modal");
+            var closeModal = document.getElementsByClassName("close")[0];
+            var selectedDate = null;
+            var events = [];
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth', // Exibir um calendário mensal
+                locale: 'pt-br',
+                selectable: true, // Permite clicar nos dias
+                dateClick: function (info) {
+                    selectedDate = info.dateStr;
+                    modal.style.display = "flex"; // Abre o modal ao clicar em um dia
+                },
+                events: events // Carregar eventos aqui depois
+            });
+
+            calendar.render();
+
+            // Fechar o modal
+            closeModal.onclick = function () {
+                modal.style.display = "none";
+            };
+
+            // Salvar filme escolhido e adicionar ao calendário
+            $("#filmeForm").submit(function (event) {
+                event.preventDefault();
+                var filmeEscolhido = $("#filmeSelect").val();
+                
+                // Adiciona o evento ao calendário
+                calendar.addEvent({
+                    title: filmeEscolhido,
+                    start: selectedDate,
+                    allDay: true
+                });
+
+                modal.style.display = "none"; // Fecha o modal
+            });
+        });
+    </script>
+</body>
+</html>
+

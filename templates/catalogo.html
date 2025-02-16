@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <title>Escolha seu Filme</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container-catalogo">
+        <h1>Escolha os filmes que deseja assistir:</h1>
+
+        <form method="POST">
+            <div class="catalogo">
+
+                <div class="filme">
+                    <input type="checkbox" name="filmes" value="O Homem do Saco">
+                    <img src="{{ url_for('static', filename='img/o-homem-do-saco.jpg') }}" alt="O Homem do Saco">
+                    <p>O Homem do Saco</p>
+                </div>
+        
+                <div class="filme">
+                    <input type="checkbox" name="filmes" value="Mufasa: O Rei Leão">
+                    <img src="{{ url_for('static', filename='img/mufasa-o-rei-leao.jpg') }}" alt="Mufasa: O Rei Leão">
+                    <p>Mufasa: O Rei Leão</p>
+                </div>
+        
+                <div class="filme">
+                    <input type="checkbox" name="filmes" value="O Auto da Compadecida 2">
+                    <img src="{{ url_for('static', filename='img/o-auto-da-compadecida-2.jpg') }}" alt="O Auto da Compadecida 2">
+                    <p>O Auto da Compadecida 2</p>
+                </div>
+        
+                <div class="filme">
+                    <input type="checkbox" name="filmes" value="Covil de Ladrões 2">
+                    <img src="{{ url_for('static', filename='img/covil-de-ladroes-2.jpg') }}" alt="Covil de Ladrões 2">
+                    <p>Covil de Ladrões 2</p>
+                </div>
+        
+                <div class="filme">
+                    <input type="checkbox" name="filmes" value="Chico Bento e a Goiabeira Maravilhosa">
+                    <img src="{{ url_for('static', filename='img/chico-bento-e-a-goiabeira-maravilhosa.jpg') }}" alt="Chico Bento e a Goiabeira Maravilhosa">
+                    <p>Chico Bento e a Goiabeira Maravilhosa</p>
+                </div>
+        
+                <div class="filme">
+                    <input type="checkbox" name="filmes" value="Blindado">
+                    <img src="{{ url_for('static', filename='img/blindado.jpg') }}" alt="Blindado">
+                    <p>Blindado</p>
+                </div>
+        
+                <div class="filme">
+                    <input type="checkbox" name="filmes" value="Sonic 3: O Filme">
+                    <img src="{{ url_for('static', filename='img/sonic-3-o-filme.jpg') }}" alt="Sonic 3: O Filme">
+                    <p>Sonic 3: O Filme</p>
+                </div>
+        
+                <div class="filme">
+                    <input type="checkbox" name="filmes" value="Ainda Estou Aqui">
+                    <img src="{{ url_for('static', filename='img/ainda-estou-aqui.jpg') }}" alt="Ainda Estou Aqui">
+                    <p>Ainda Estou Aqui</p>
+                </div>
+        
+                <div class="filme">
+                    <input type="checkbox" name="filmes" value="Acompanhante Perfeita">
+                    <img src="{{ url_for('static', filename='img/acompanhante-perfeita.jpg') }}" alt="Acompanhante Perfeita">
+                    <p>Acompanhante Perfeita</p>
+                </div>
+        
+                <div class="filme">
+                    <input type="checkbox" name="filmes" value="Dragon Ball Daima - Especial">
+                    <img src="{{ url_for('static', filename='img/dragon-ball-daima-especial.jpg') }}" alt="Dragon Ball Daima - Especial">
+                    <p>Dragon Ball Daima - Especial</p>
+                </div>
+        
+                <div class="filme">
+                    <input type="checkbox" name="filmes" value="Conclave">
+                    <img src="{{ url_for('static', filename='img/conclave.jpg') }}" alt="Conclave">
+                    <p>Conclave</p>
+                </div>
+        
+                <div class="filme">
+                    <input type="checkbox" name="filmes" value="Nosferatu">
+                    <img src="{{ url_for('static', filename='img/nosferatu.jpg') }}" alt="Nosferatu">
+                    <p>Nosferatu</p>
+                </div>
+        
+                <div class="filme">
+                    <input type="checkbox" name="filmes" value="Capitão América: Admirável Novo Mundo">
+                    <img src="{{ url_for('static', filename='img/capitao-america-admiravel-novo-mundo.jpg') }}" alt="Capitão América: Admirável Novo Mundo">
+                    <p>Capitão América: Admirável Novo Mundo</p>
+                </div>
+        
+            </div>
+        
+            <button type="submit">Avançar</button>
+        </form>
+    </div>
+</body>
+</html>
+

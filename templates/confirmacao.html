@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <title>Confirmação</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ nome }}, você gostaria de assistir "{{ filme }}" no dia {{ data }} com Fernando Prata?</h1>
+        <form method="POST">
+            <button type="submit" name="resposta" value="sim">Sim</button>
+            <button type="submit" name="resposta" value="nao">Não</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
