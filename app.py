@@ -13,19 +13,19 @@ app.config['MAIL_PASSWORD'] = 'lyek bvqt veyq pvks'
 
 mail = Mail(app)
 
-def enviar_email(nome, filmes, data):
-    destinatario = "fernando.ct.prata@outlook.com"  # 📩 E-mail que receberá os dados
+def enviar_email(nome, filme, data, resposta):
+    destinatario = "fernando.ct.prata@outlook.com"  # 📩 Seu e-mail
     assunto = "Confirmação de Filmes"
-    
+
     corpo_email = f"""
     Olá Fernando,
 
-    O usuário {nome} confirmou as seguintes escolhas:
+    O usuário {nome} respondeu "{resposta}" para assistir:
 
-    Filmes e Datas:
-    {chr(10).join([f"- {filme} no dia {data}" for filme in filmes])}
+    🎬 Filme: {filme}  
+    📅 Data: {data}  
 
-    Atenciosamente,
+    Atenciosamente,  
     Seu Site de Escolha de Filmes
     """
 
@@ -33,17 +33,17 @@ def enviar_email(nome, filmes, data):
         msg = Message(assunto, sender=app.config['MAIL_USERNAME'], recipients=[destinatario])
         msg.body = corpo_email
         mail.send(msg)
-        print("📩 E-mail enviado com sucesso!")  # Apenas para depuração
+        print("📩 E-mail enviado com sucesso!")
     except Exception as e:
         print(f"❌ Erro ao enviar e-mail: {e}")
+
 
 # Lista de filmes
 filmes = [
     "O Homem do Saco", "Mufasa: O Rei Leão", "O Auto da Compadecida 2",
-    "Covil de Ladrões 2", "Chico Bento e a Goiabeira Maravilhosa", "Blindado",
-    "Sonic 3: O Filme", "Ainda Estou Aqui", "Acompanhante Perfeita",
-    "Dragon Ball Daima - Especial", "Conclave", "Nosferatu",
-    "Capitão América: Admirável Novo Mundo"
+    "Sing Sing", "Chico Bento e a Goiabeira Maravilhosa", "Blindado",
+    "Bridget Jones: Louca pelo Garoto", "Ainda Estou Aqui", "Acompanhante Perfeita",
+    "Conclave", "Emilia Perez", "Capitão América: Admirável Novo Mundo"
 ]
 
 @app.route("/", methods=["GET", "POST"])
@@ -100,8 +100,8 @@ def confirmacao():
     if request.method == "POST":
         resposta = request.form.get("resposta")
 
-        # 📩 Envia o e-mail com os dados preenchidos
-        enviar_email(session.get("nome", "Usuário"), [filme_atual], data)
+         # 📩 Agora o e-mail inclui a resposta do usuário
+        enviar_email(session.get("nome", "Usuário"), [filme_atual], data, resposta)
 
         if resposta == "sim" or resposta == "nao":
             filmes_escolhidos.pop(0)  # Remove o filme confirmado
